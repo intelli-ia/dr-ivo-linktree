@@ -1,29 +1,35 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Montserrat } from "next/font/google";
+import { MuseoModerno, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const playfairDisplay = Playfair_Display({
+/** Títulos — MuseoModerno Regular (400). */
+const museoModerno = MuseoModerno({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["400"],
   variable: "--font-heading",
 });
 
+/** Textos — Montserrat Medium (500); 600 fica disponível para os CTAs. */
 const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600"],
+  weight: ["500", "600"],
   variable: "--font-body",
 });
 
 export const metadata: Metadata = {
-  title: "Patricia Souza",
-  description: "Links úteis de Patricia Souza.",
+  title: "Clínica Medicamp",
+  description:
+    "Agendamentos, site oficial e canais de contato da Clínica Medicamp.",
   icons: {
-    icon: [{ url: "/profile.jpg", type: "image/jpeg" }],
-    apple: [{ url: "/profile.jpg", type: "image/jpeg" }],
+    icon: [{ url: "/medicamp-perfil.jpg", type: "image/jpeg" }],
+    apple: [{ url: "/medicamp-perfil.jpg", type: "image/jpeg" }],
   },
+};
+
+export const viewport = {
+  themeColor: "#010B10",
 };
 
 export default function RootLayout({
@@ -34,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${playfairDisplay.variable} ${montserrat.variable}`}
+      className={`${museoModerno.variable} ${montserrat.variable}`}
     >
       <body className="font-body antialiased">{children}</body>
     </html>
